@@ -62,9 +62,9 @@
 			grid-template-areas:
  'header header'
 				'afterHeader afterHeader'
-				'content sidebar'
+				'sidebar content'
 				'footer footer';
-			grid-template-columns: minmax( 0, var( --width-layout ) ) var( --width-toc );
+			grid-template-columns:var( --width-toc ) minmax( 0, var( --width-layout ) );
 		}
 	}
 
