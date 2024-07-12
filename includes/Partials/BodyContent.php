@@ -93,6 +93,11 @@ final class BodyContent extends Partial {
 			return $bodyContent;
 		}
 
+		// Check if the content contains script tag
+		if ( strpos( $bodyContent, '<script>' ) !== false ) {
+			return $bodyContent;
+		}
+
 		// Make section and sanitize the output
 		if ( $this->shouldFormatPage( $title ) ) {
 			$formatter = new HtmlFormatter( $bodyContent );
