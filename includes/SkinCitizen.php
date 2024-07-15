@@ -174,7 +174,7 @@ class SkinCitizen extends SkinMustache {
 	 * @param string $feature
 	 * @param string $value
 	 */
-	private function addClientPrefFeature( string $feature, string $value = 'standard' ) {
+	private function addClientPrefFeature( string $feature, string $value = 'full' ) {
 		$this->getOutput()->addHtmlClasses( $feature . '-clientpref-' . $value );
 	}
 

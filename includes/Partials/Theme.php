@@ -46,7 +46,7 @@ final class Theme extends Partial {
 		$out = $this->out;
 
 		// Set theme to site theme
-		$theme = $this->getConfigValue( 'CitizenThemeDefault' ) ?? 'auto';
+		$theme = $this->getConfigValue( 'CitizenThemeDefault' ) ?? 'light';
 
 		// Legacy class to be deprecated
 		$out->addHtmlClasses( 'skin-citizen-' . $theme );
