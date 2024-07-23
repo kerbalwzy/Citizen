@@ -13,16 +13,16 @@
 .citizen-body-container {
 	display: grid;
 	grid-template-areas:
- 'header'
-		'afterHeader'
-		'content'
-		'footer';
+		"header"
+		"afterHeader"
+		"content"
+		"footer";
 	// Using auto as min value will cause overflow
-	grid-template-columns: minmax( 0, var( --width-layout ) );
-	gap: 0 var( --space-xl );
+	grid-template-columns: minmax(0, var(--width-layout));
+	gap: 0 var(--space-xl);
 	justify-content: center;
-	padding: 0 var( --padding-page );
-	margin: var( --space-xl ) 0; // don't collide with other components (e.g. notice)
+	padding: 0 var(--padding-page);
+	margin: var(--space-xl) 0; // don't collide with other components (e.g. notice)
 }
 
 .citizen-page-header {
@@ -30,10 +30,10 @@
 	display: flex;
 	flex-wrap: wrap;
 	grid-area: header;
-	gap: var( --space-md );
+	gap: var(--space-md);
 	align-items: center;
-	padding-top: var( --space-md );
-	padding-bottom: var( --space-md );
+	padding-top: var(--space-md);
+	padding-bottom: var(--space-md);
 }
 
 .citizen-page-heading {
@@ -51,39 +51,49 @@
 	grid-area: content;
 }
 
-@media ( min-width: @min-width-breakpoint-desktop ) {
+@media (min-width: @min-width-breakpoint-desktop) {
 	.citizen-page-container {
 		// Reserve space for header
-		margin-left: var( --header-size );
+		margin-left: var(--header-size);
 	}
 
 	.citizen-toc-enabled {
 		.citizen-body-container {
 			grid-template-areas:
- 'header header'
-				'afterHeader afterHeader'
-				'sidebar content'
-				'footer footer';
-			grid-template-columns:var( --width-toc ) minmax( 0, var( --width-layout ) );
+				"header header"
+				"afterHeader afterHeader"
+				"sidebar content"
+				"footer footer";
+			grid-template-columns: var(--width-toc) minmax(
+					0,
+					calc(
+						var(--width-layout) - var(--width-toc) - var(--space-xl)
+					)
+				);
+			gap: 0 var(--space-xl);
+			justify-content: center;
+			width: var(--width-layout);
+			margin: 0 auto; /* 确保容器居中对齐 */
+			background-color: #fff;
 		}
 	}
 
 	.citizen-animations-ready {
 		.citizen-body-container {
-			transition: var( --transition-menu );
+			transition: var(--transition-menu);
 			transition-property: grid;
 		}
 	}
 }
 
 /* Wider page width for certain namespaces */
-@media ( min-width: @min-width-breakpoint-desktop-wide ) {
+@media (min-width: @min-width-breakpoint-desktop-wide) {
 	// 1 - Special, 6 - File, 14 - Category
 	.ns {
 		&--1,
 		&-6,
 		&-14 {
-			--width-layout: var( --width-layout--extended );
+			--width-layout: var(--width-layout--extended);
 		}
 	}
 }
